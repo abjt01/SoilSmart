@@ -15,6 +15,11 @@ import {
 import { Line, Bar, Doughnut, Radar } from 'react-chartjs-2';
 import { TrendingUp, TrendingDown, IndianRupee, Calendar, Target, Award } from 'lucide-react';
 
+// Import the new components
+import SoilTestingLabLocator from './SoilTestingLabLocator';
+import IrrigationMethodSelector from './IrrigationMethodSelector';
+import HarvestSellingOptimizer from './HarvestSellingOptimizer';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -122,7 +127,7 @@ const ProfitabilityCard = ({ crop, soilSuitability, marketPrice, costPerHectare,
   );
 };
 
-const InteractiveDashboard = ({ soilData, recommendations, strings }) => {
+const InteractiveDashboard = ({ soilData, recommendations, strings, userContext = {} }) => {
   const [activeTab, setActiveTab] = useState('overview');
 
   if (!soilData) return null;
@@ -205,11 +210,15 @@ const InteractiveDashboard = ({ soilData, recommendations, strings }) => {
     }]
   };
 
+  // Enhanced tabs with new features
   const tabs = [
     { id: 'overview', label: '📊 Overview', icon: '📊' },
     { id: 'nutrients', label: '🧪 Soil Analysis', icon: '🧪' },
     { id: 'profitability', label: '💰 Profitability', icon: '💰' },
     { id: 'recommendations', label: '🌾 Crops', icon: '🌾' },
+    { id: 'irrigation', label: '💧 Irrigation', icon: '💧' }, // NEW
+    { id: 'labs', label: '🗺️ Testing Labs', icon: '🗺️' }, // NEW
+    { id: 'selling', label: '📈 Sell Timing', icon: '📈' }, // NEW
     { id: 'planning', label: '📅 Planning', icon: '📅' }
   ];
 
@@ -596,25 +605,62 @@ const InteractiveDashboard = ({ soilData, recommendations, strings }) => {
                 Fertilizer Recommendations
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {recommendations.fertilizers.map((fertilizer, index) => (
-                  <div key={index} className="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-neutral-800">{fertilizer.name}</h4>
-                      <div className="text-sm font-bold text-purple-600 flex items-center">
-                        <IndianRupee className="w-3 h-3 mr-1" />
-                        {(fertilizer.cost * 82).toLocaleString('en-IN')}
+                {recommendations.fertilizers.map((fertilizer, index) => {
+                  // Fixed fertilizer cost calculation in INR
+                  const costINR = Math.round(fertilizer.cost); // Direct INR value
+                  
+                  return (
+                    <div key={index} className="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="font-semibold text-neutral-800">{fertilizer.name}</h4>
+                        <div className="text-sm font-bold text-purple-600 flex items-center">
+                          <IndianRupee className="w-3 h-3 mr-1" />
+                          {costINR.toLocaleString('en-IN')}
+                        </div>
+                      </div>
+                      <div className="text-sm text-neutral-600 space-y-1">
+                        <div>📦 Quantity: {fertilizer.quantity}</div>
+                        <div>📝 Application: {fertilizer.application}</div>
+                        <div className="text-xs text-purple-500 mt-2">
+                          Per hectare cost
+                        </div>
                       </div>
                     </div>
-                    <div className="text-sm text-neutral-600 space-y-1">
-                      <div>📦 Quantity: {fertilizer.quantity}</div>
-                      <div>📝 Application: {fertilizer.application}</div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
         </div>
+      )}
+
+      {/* NEW: Irrigation Tab */}
+      {activeTab === 'irrigation' && (
+        <IrrigationMethodSelector
+          onIrrigationSelect={(data) => console.log('Irrigation selected:', data)}
+          strings={strings}
+          soilTexture={soilData.soilTexture}
+          cropType={recommendations?.cropSuggestions?.[0]?.cropName || 'Wheat'}
+          area={1}
+        />
+      )}
+
+      {/* NEW: Testing Labs Tab */}
+      {activeTab === 'labs' && (
+        <SoilTestingLabLocator
+          userLocation={userContext.location || 'Karnataka, India'}
+          strings={strings}
+        />
+      )}
+
+      {/* NEW: Selling Timing Tab */}
+      {activeTab === 'selling' && (
+        <HarvestSellingOptimizer
+          cropName={recommendations?.cropSuggestions?.[0]?.cropName || 'Wheat'}
+          location={userContext.location || 'Karnataka, India'}
+          expectedHarvestDate={userContext.expectedHarvestDate || new Date().toISOString().split('T')[0]}
+          strings={strings}
+        />
       )}
 
       {/* Planning Tab */}

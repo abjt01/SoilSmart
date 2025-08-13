@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #f0fdf4 0%, #fef7ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .card-3d {
+    @apply bg-white rounded-xl border border-gray-200;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-3d:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply text-white font-medium px-6 py-3 rounded-lg transition-all duration-200;
+    background: linear-gradient(to right, #22c55e, #16a34a);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(to right, #16a34a, #15803d);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:disabled {
+    @apply bg-gray-400 cursor-not-allowed;
+    transform: none;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all;
+  }
+
+  .upload-zone {
+    @apply border-2 border-dashed border-green-300 rounded-xl p-8 text-center transition-all duration-300;
+  }
+  
+  .upload-zone.dragover {
+    @apply border-green-500 bg-green-50;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(to right, #22c55e, #eba820);
+    transition: width 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Enhanced 3D transformations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Chart container styles */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Tab animations */
+.tab-content-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.tab-content-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+/* Profit margin indicators */
+.profit-positive {
+  color: #10B981;
+}
+
+.profit-negative {
+  color: #EF4444;
+}
+
+/* Indian Rupee symbol styling */
+.rupee-symbol {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+/* Loading shimmer for charts */
+.chart-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced gauge animations */
+.gauge-score {
+  animation: countUp 2s ease-out;
+}
+
+/* Custom Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-400;
+}
+
+/* Responsive design helpers */
+@media (max-width: 640px) {
+  .card-3d {
+    @apply mx-4;
+  }
+}
+
+/* Responsive chart containers */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 250px;
+  }
+}
+
+@media (min-width: 641px) {
+  .chart-container {
+    height: 300px;
+  }
+}
+
+/* 3D button effects */
+.btn-3d {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
+.btn-3d:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

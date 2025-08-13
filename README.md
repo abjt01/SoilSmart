@@ -229,23 +229,14 @@ Our AI analyzes soil parameters against crop requirements:
 - **12 Month Planning** - Seasonal recommendations for entire year
 - **5 Language Support** - Accessible to diverse farming communities
 
-🔮 Roadmap & Future Features
-
-Weather Integration - Practical weather alerts and simple yield-impact predictions, starting with IMD API data
-
-Basic Satellite Insights - Use free/low-cost satellite data for large-field NDVI vegetation checks
-
-IoT Sensor Compatibility (Pilot) - Integration with a few affordable soil moisture & pH sensors tested in select states
-
-Mobile App (Beta) - Lightweight Android app with core features; iOS version planned later
-
-Marketplace Connect (Pilot) - Limited crop categories for direct buyer-seller interaction, starting with one or two states
-
-Government Scheme Integration - Information on subsidies, not full automation at first
-
-Financial Partnerships - Tie-ups with microfinance institutions for small credit options based on soil/crop plans
-
-
+### 🔮 Roadmap & Future Features
+- ☀️ **Weather Integration** — Practical weather alerts and simple yield-impact predictions, starting with IMD API data
+- 🛰️ **Basic Satellite Insights** — Use free/low-cost satellite data for large-field NDVI vegetation checks
+- 🌡️ **IoT Sensor Compatibility (Pilot)** — Integration with a few affordable soil moisture & pH sensors tested in select states
+- 📱 **Mobile App (Beta)** — Lightweight Android app with core features; iOS version planned later
+- 🛒 **Marketplace Connect (Pilot)** — Limited crop categories for direct buyer-seller interaction, starting with one or two states
+- 🏛️ **Government Scheme Integration** — Information on subsidies, not full automation at first
+- 💳 **Financial Partnerships** — Tie-ups with microfinance institutions for small credit options based on soil/crop plans
 
 ## 🤝 Contributing
 
@@ -289,11 +280,6 @@ We welcome contributions from developers, agricultural experts, and domain speci
 - **Government Agencies** - Integration with agricultural departments
 - **NGOs & Cooperatives** - Farmer training and implementation support
 - **Technology Partners** - API integrations and service expansion
-
-## 📄 Legal & Compliance
-
-### 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for complete details.
 
 ### 🔒 Privacy & Data Security
 - **Data Protection** - All soil data is encrypted and secured

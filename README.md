@@ -1,4 +1,4 @@
-<img width="2940" height="3910" alt="image" src="https://github.com/user-attachments/assets/50dd891f-19c3-402f-8c6e-725a719aa7c3" /># SoilSmart 🌱
+# SoilSmart 🌱
 **AI-Powered Soil Analysis & Farm Intelligence Platform for Indian Agriculture**
 
 Transform your soil test reports into actionable, profitable farming strategies with comprehensive analysis, real-time market insights, and season-specific recommendations tailored for Indian agricultural conditions.

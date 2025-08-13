@@ -1,4 +1,4 @@
-# SoilSmart 🌱
+<img width="2940" height="3910" alt="image" src="https://github.com/user-attachments/assets/50dd891f-19c3-402f-8c6e-725a719aa7c3" /># SoilSmart 🌱
 **AI-Powered Soil Analysis & Farm Intelligence Platform for Indian Agriculture**
 
 Transform your soil test reports into actionable, profitable farming strategies with comprehensive analysis, real-time market insights, and season-specific recommendations tailored for Indian agricultural conditions.
@@ -40,6 +40,9 @@ SoilSmart provides a **complete end-to-end agricultural intelligence platform** 
 - **pH Balance Assessment** - Optimal range recommendations for different crops
 - **Texture Analysis** - Sandy, Loam, Clay, Silt classifications
 - **Moisture Level Evaluation** - Water retention and drainage assessments
+  
+<img width="2940" height="3910" alt="image" src="https://github.com/user-attachments/assets/966767fb-3104-4028-93a5-aa6b177df8cf" />
+
 
 ### 🌾 Smart Agricultural Recommendations
 - **AI Crop Selection** - Suitability scores based on soil conditions
@@ -68,6 +71,9 @@ SoilSmart provides a **complete end-to-end agricultural intelligence platform** 
 - **Storage Cost Analysis** - Monthly storage expenses and loss percentages
 - **Market Timing Strategy** - Short-term vs. long-term selling recommendations
 - **Regional Price Variations** - State-specific market insights
+
+<img width="2940" height="2862" alt="image" src="https://github.com/user-attachments/assets/2279f1af-84ab-47c4-8c15-57e52338bd37" />
+
 
 ## 🛠️ Technical Architecture
 

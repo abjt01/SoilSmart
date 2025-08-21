@@ -1,4 +1,4 @@
-**Built at Hackathon (Atria Inst. of Technology).
+Built at Hackathon (Atria Inst. of Technology).
 
 # SoilSmart 🌱
 **AI-Powered Soil Analysis & Farm Intelligence Platform for Indian Agriculture**
